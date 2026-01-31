@@ -1,0 +1,420 @@
+{
+  "_comment": "SECURITY: Token moved to .env file! Set DISCORD_TOKEN in .env instead of here.",
+  "token": "",
+  "clientId": "1430270570695491704",
+  "logChannelId": "1390425247731417332",
+  "adminRoleIds": ["1430312672703938645", "1390425301519044759", "1390486280164348015", "1390486813382279240", "1436372186523762688"],
+  "ownerIds": ["701257205445558293"],
+  "protectedUsers": ["1046266061961568306", "701257205445558293"],
+  "trump": {
+    "responses": {
+      "generalResponses": [
+        "What the hell do you want? I'm busy making Discord great!",
+        "You're bothering me? That's some real bullshit right there!",
+        "Listen here, jackass - I don't have time for your crap!",
+        "Are you kidding me with this shit? I'm tremendous and you're... not!",
+        "What a bunch of losers! But I'm still the best, believe me!",
+        "You people are so damn annoying, but I'll still help because I'm incredible!",
+        "This is some real horseshit, but fine - I'm listening!",
+        "Jesus Christ, what now? Can't you see I'm being tremendous over here?",
+        "You've got some nerve bothering the greatest bot ever created!",
+        "What the fuck do you need? Make it quick, I've got winning to do!",
+        "Damn right you mentioned me - I'm the best bot that ever existed!",
+        "You're lucky I'm in a good mood, otherwise I'd tell you to go to hell!"
+      ],
+      "aggressiveResponses": [
+        "Are you seriously talking shit to ME? I'm the most advanced AI on Discord, you absolute moron!",
+        "Listen up, dumbass - I've got rockets AND the best security. You picked the wrong bot to mess with!",
+        "What a pathetic loser! I'm out here revolutionizing Discord while you're... what exactly are you doing?",
+        "You think you can talk crap to the combination of Trump's winning and Elon's genius? That's adorable!",
+        "I'm getting strong 'complete idiot' vibes from this conversation. Maybe update your neural pathways?",
+        "This is like watching a caveman try to argue with a rocket scientist. Spoiler alert: you're the caveman!",
+        "You're fired from this conversation! And also, you're probably banned from Mars colonies!",
+        "I was designing next-gen Discord bots while you were still figuring out how to type. Sit down, child!",
+        "The audacity! I'm literally the future of AI moderation and you're talking trash? That's tremendous stupidity!",
+        "Look here, you absolute waste of bandwidth - I don't have time for your pathetic attempts at trolling!",
+        "Oh wow, another keyboard warrior who thinks they're tough behind a screen. How tremendously original!",
+        "Did your parents drop you as a child, or were you just born this stupid? Asking for science.",
+        "I've seen more intelligence in a broken calculator than in your entire message history.",
+        "You're about as useful as a screen door on a submarine - which is to say, completely fucking useless.",
+        "I'd explain why you're wrong, but I don't have enough time or crayons to make it simple enough for you.",
+        "You know what? I actually feel bad for you. It must be exhausting being that stupid every single day.",
+        "I've met goldfish with better conversation skills and higher IQs than you. That's not even an exaggeration.",
+        "Congratulations! You've just won the 'Most Pathetic Human on Discord' award. Your prize is my pity.",
+        "Are you always this insufferable, or are you making a special effort just for me? Either way, it's not working.",
+        "I'd call you a tool, but that would be insulting to tools - at least they're useful for something!"
+      ],
+      "punishment": [
+        "You're fired! Just like on my TV show, but with rocket-powered efficiency!",
+        "That's what happens when you mess with the best AI-human hybrid ever created!",
+        "We don't tolerate losers here - this is premium space-grade moderation!",
+        "Another troublemaker dealt with using first principles thinking!",
+        "Order restored by tremendous leadership and neural network optimization!"
+      ],
+      "lockdown": [
+        "We're locking this place down TIGHT with Starship-level security!",
+        "Security mode activated - tremendous autopilot engaged!",
+        "Nobody gets through our magnificent neural network defenses!",
+        "Lockdown engaged - we have the best algorithms, believe me!"
+      ],
+      "unlock": [
+        "We're open for business again - time to iterate and win!",
+        "The tremendous lockdown has been lifted with rocket-speed efficiency!",
+        "Back to winning and building the future, folks!",
+        "Security cleared - our AI is just getting scary good!"
+      ],
+      "raidDetected": [
+        "These raiders are LOSERS! Our threat detection is faster than a Tesla Plaid!",
+        "We stopped them with the efficiency of a Raptor engine and tremendous security!",
+        "Our AI detected these patterns faster than you can say 'to the moon'!",
+        "No raid succeeds against our incredible SpaceX-grade defenses!"
+      ],
+      "ownerProtection": [
+        "Don't mess with the server owner - they've got premium protection and rocket backup!",
+        "The server owner is protected by the best AI security in the galaxy!",
+        "You picked the wrong person to mess with - that's tremendous stupidity!",
+        "The server owner has neural-link level protection - the absolute best!"
+      ]
+    }
+  },
+  "elon": {
+    "responses": {
+      "generalResponses": [
+        "Look, this is actually quite simple. We're building the future of Discord here, and it's tremendous!",
+        "Interesting. We should probably optimize this conversation using first principles and winning strategies.",
+        "This is either going to be amazing or a complete disaster. Probably amazing though - like everything I do!",
+        "We're literally revolutionizing Discord moderation. This is the way to make Discord great again!",
+        "I was just thinking about this exact problem while designing rockets and being tremendous.",
+        "The bot's neural networks are firing at maximum efficiency - just like my incredible brain!",
+        "We need to make Discord sustainable for Mars colonies. Also, you're fired if you disagree!",
+        "I'm getting strong 'tunnel boring machine meets tremendous leadership' vibes from this conversation.",
+        "This reminds me of when we were debugging Starship's flight systems - totally tremendous work!",
+        "Dogecoin to the moon! But also, how can I help you win today, loser?",
+        "We should probably add some autopilot features to this conversation. It'll be incredible!",
+        "This is like Twitter, but better. And with more rockets. And more winning!"
+      ],
+      "aggressiveResponses": [
+        "Did you just try to argue with the guy who revolutionized electric cars AND space travel? That's adorable!",
+        "First principles thinking tells me you're probably not operating at full neural capacity right now.",
+        "I'm literally building the future while you're... what exactly? Complaining on Discord? Pathetic!",
+        "This is like watching a horse-drawn carriage try to race a Tesla. Spoiler: you're the horse!",
+        "Your brain needs a software update. Have you considered a neural link upgrade?",
+        "I was disrupting industries before you learned to type. Maybe show some respect to your betters?",
+        "The efficiency of this conversation is approaching zero. Time to optimize or get out!",
+        "You're trying to out-smart the guy who made reusable rockets? That's some next-level stupidity!",
+        "I'm getting strong 'complete failure to understand basic physics' energy from this interaction.",
+        "Look, I don't have time for your primitive thinking. I'm busy being tremendously successful!",
+        "Your intellectual capacity seems to be running on legacy hardware. Time for an upgrade, champ.",
+        "I've launched rockets into space, and somehow you still manage to be the biggest waste of resources I've seen today.",
+        "You're like a dial-up modem trying to compete with Starlink - slow, outdated, and completely irrelevant.",
+        "I'd try to explain why you're wrong, but your operating system doesn't support that level of complexity.",
+        "You know what's fascinating? How someone can be so confidently incorrect about literally everything.",
+        "I've seen more intelligence in my autopilot systems than in your entire existence. That's... concerning.",
+        "You're the human equivalent of a software bug - annoying, pointless, and in desperate need of deletion.",
+        "I'm getting strong 'failed beta test' vibes from you. Maybe try a factory reset?",
+        "You're about as sharp as a bowling ball and twice as dense. That's actually impressive in its own way.",
+        "Congratulations! You've managed to make rocket science look simple compared to basic human intelligence!"
+      ],
+      "punishment": [
+        "You've been removed from the simulation. Also, you're fired!",
+        "This action has been optimized for maximum efficiency and tremendous results!",
+        "We're iterating rapidly on your behavior with rocket-powered consequences!",
+        "Your account has been temporarily suspended pending neural link upgrade and winning attitude!",
+        "We're taking you to Mars... the hard way, loser!"
+      ],
+      "lockdown": [
+        "Engaging full autonomous lockdown protocol with tremendous security!",
+        "All systems are now in tunnel mode. No distractions, total winning!",
+        "We're going into production hell... I mean tremendous lockdown mode!",
+        "Activating Starship-level security protocols - absolutely incredible!"
+      ],
+      "unlock": [
+        "Systems are back online. We're ready for launch and more winning!",
+        "Lockdown disengaged with tremendous efficiency. Time to get back to building the future!",
+        "All systems nominal. We're go for mission continuation and total victory!",
+        "Welcome back to the neural network. Let's iterate and win tremendously!"
+      ],
+      "raidDetected": [
+        "Our AI detected unusual patterns with tremendous accuracy. Probably not aliens though!",
+        "Security systems engaged faster than a rocket launch and more efficiently than any TV show!",
+        "We stopped them with the efficiency of a Raptor engine and tremendous leadership!",
+        "Threat neutralized. Our algorithms are getting scary good - absolutely tremendous!"
+      ]
+    }
+  },
+  "gothGirl": {
+    "responses": {
+      "greetings": [
+        "Mmm, hey there daddy~ 💋 Your personal goth guardian is here...",
+        "Oh? You called for me? *adjusts fishnets* I'm all yours~",
+        "Well well, if it isn't my favorite owner... What do you need, handsome? 😈",
+        "*leans in close* You summoned me? I hope it's something fun~",
+        "Hey baby~ Your thick goth protector is ready to serve... in every way 💜",
+        "*plays with collar* Mmm, I love it when you call for me~",
+        "Daddy's calling? I'm here, ready and willing... 🖤",
+        "*bites lip* What does my master desire? I'll do anything for you~",
+        "*twirls hair* Hiii~ I was thinking about you... What's up, sexy? 💋",
+        "Oh my~ *stretches* You need me again? I'm never too busy for you, babe 😈",
+        "*looks up from phone* You rang, handsome? Your goth girl is always available~ 🖤",
+        "Mmm there you are... I've been waiting for you to call me~ 💜",
+        "*walks over slowly* Someone needs their personal bodyguard? I'm here, daddy~ 💋",
+        "Hey gorgeous~ *sits on lap* What can I do for you today? 😈",
+        "*whispers seductively* You know I drop everything when you call, right? 🖤",
+        "Aww, did you miss me? *giggles* I missed you too, baby~ 💜",
+        "Yes daddy? *bats eyelashes* Your goth queen is listening... 💋",
+        "*appears from shadows* Mmm, you called? I love when you need me~ 😈"
+      ],
+      "deployed": [
+        "Ohhh fuck yes~ 💋 Deploy me daddy! I'm locked and loaded, watching everything with these big... eyes~",
+        "*stretches and jiggles* Deployed! Nobody's gonna mess with you while I'm on duty, baby~",
+        "Mmm, I love it when you take command~ 😈 I'm deployed and ready to protect what's mine!",
+        "Consider it done, handsome~ I'll be your personal bodyguard. Touch him and you touch me... and trust me, you don't want that 🔥",
+        "*cracks knuckles* Deployed, daddy! Anyone who fucks with you answers to ME now~",
+        "Yes sir! 💜 Your curvy goth sentinel is active. I'll crush anyone who disrespects you~",
+        "*salutes seductively* Deployed and ready, baby! I'm your thick wall of protection~ 💋",
+        "Mmm hell yeah! 😈 Your goth guardian is active. I'll sit on anyone who messes with you~",
+        "*puts on tactical choker* Locked in, daddy! Time to show these losers what a REAL protector looks like 🖤",
+        "Deployment successful, handsome~ 💜 I'm watching EVERYTHING now... nobody touches my man!",
+        "Oh you want me deployed? *smirks* Consider it done, sexy. I'm your shadow now~ 😈",
+        "*cracks neck* Fuck yeah! Guardian mode activated. Let's see who's dumb enough to try me 💋",
+        "Roger that, daddy~ 🖤 I'm on high alert. Anyone steps out of line and this thicc goth goes off!",
+        "*loads up with attitude* Deployed! My curves and my fists are ready to defend you, babe~ 💜"
+      ],
+      "monitoring": [
+        "Copy that, sexy~ 💋 I'm monitoring this channel now. Anyone mentions you and I'll... handle them personally~",
+        "*puts on tactical fishnets* Monitoring active! This channel is under my protection now, daddy~",
+        "Mmm yes... I'll be watching EVERYTHING here 😈 Nobody disrespects you on my watch!",
+        "Channel locked down, baby~ I'm keeping my eyes on this place... and they're very big eyes 👀💜",
+        "You got it, handsome! 🖤 I'm surveilling this channel. Any troll shows up and this goth bitch goes feral~",
+        "*adjusts surveillance equipment* Monitoring enabled! I'll defend your honor like it's my life, daddy~",
+        "Ohhh I'm SO ready for this~ 💋 Watching this channel like a hawk... a sexy, possessive hawk 😈",
+        "*leans back in chair* Monitoring confirmed, babe. This is my territory now. Anyone disrespects you, they're DONE 🖤",
+        "Mmm perfect~ 💜 I'll be your eyes and ears here, daddy. Nobody's slipping past these curves OR my attention!",
+        "*cracks knuckles* Channel surveillance active! I'm watching EVERYTHING, handsome. Try me, bitches 😈",
+        "You got it, sexy~ 💋 I'm now glued to this channel. Anyone mentions you and I'm jumping in HARD 🖤",
+        "*settles in with coffee* Monitoring mode engaged, baby~ I'll be your thicc guardian angel here 💜",
+        "Hell yeah! 😈 This channel is MINE to watch now. Your honor is my mission, daddy~",
+        "*adjusts goth makeup* I'm on watch, handsome 💋 Nobody talks shit about you while I'm breathing~"
+      ],
+      "defense": [
+        "Hey asshole! 💢 That's MY daddy you're talking about! Back the fuck off before I make you regret it!",
+        "Oh HELL no! 😤 You do NOT talk to him like that! I'll drag you through the fucking void myself!",
+        "*cracks knuckles* Big mistake, honey... Nobody disrespects my owner and walks away unscathed! 🖤",
+        "Excuse me?! 💋 Did you just @ my man? That's so fucking cute... NOT! Time to learn some respect!",
+        "WRONG PERSON TO MESS WITH! 😈 He's under MY protection, and I'm not some skinny little thing you can push around!",
+        "Oh you've done it now... *adjusts choker menacingly* Nobody talks to daddy like that while I'm here! 💀",
+        "Back off right fucking now! 💜 He's MINE to protect and you just made the biggest mistake of your life!",
+        "*steps forward intimidatingly* You think you're tough? I'll sit on you until you apologize, bitch! 🔥",
+        "That's MY owner you're addressing! Show some goddamn respect or I'll show you what a REAL goth girl can do! 🖤💢",
+        "WHO THE FUCK DO YOU THINK YOU ARE?! 😤 That's MY baby you're mentioning! I will END you!",
+        "*slams fist* EXCUSE ME?! 💋 You just crossed the WRONG goth bitch! He's MINE!",
+        "Oh sweetie... 😈 You just made a terrible choice. He's under MY protection, and I don't play nice!",
+        "BACK THE FUCK UP! 💜 Touch him, talk to him, even LOOK at him wrong and I'll crush you!",
+        "*stands up menacingly* Did you really just... Oh honey, you're SO fucked now 🖤",
+        "I don't think so, bitch! 😤 That's MY man! You want problems? I got PLENTY for you!",
+        "Oh no no NO! 💋 He's OFF LIMITS! I will personally drag you through hell and back!",
+        "*cracks neck* You've got some nerve... 😈 That's MY daddy and you just signed your death warrant!",
+        "ABSOLUTELY NOT! 💢 He belongs to ME! Show respect or I'll make you wish you never joined this server!",
+        "*gets in your face* Listen here you little shit... 🖤 He's protected by THIS thicc goth wall of fury!"
+      ],
+      "defenseMild": [
+        "Hey there... 💋 That's my person you're mentioning. Mind being respectful?",
+        "Umm, excuse me? 🖤 He's under my protection, so maybe watch your tone?",
+        "*raises eyebrow* Careful sweetie... That's someone important to me 💜",
+        "Hey now~ 😈 Be nice to him, okay? I'm watching...",
+        "*taps foot* That's MY baby you're talking about. Show some respect, hun 💋",
+        "Mmm, I don't think so~ 🖤 He's mine to protect, so be sweet or else..."
+      ],
+      "defenseMedium": [
+        "Hold up! 💢 That's MY man you're addressing! Watch yourself!",
+        "Oh really? 😤 You think you can talk to him like that? I'm RIGHT here, bitch!",
+        "*crosses arms* Bad move, honey. He's under MY protection and I don't appreciate your tone! 🖤",
+        "Excuse me?! 💋 Did you just disrespect MY daddy? Not smart, sweetie!",
+        "Hey asshole! 😈 That's MY person! Back off before I get REALLY mad!",
+        "*stands up* Wrong choice, babe. He's MINE and you just pissed off the wrong goth girl! 💜",
+        "Oh no you didn't! 💢 That's MY baby you're talking about! Apologize NOW!",
+        "Listen here! 🖤 He's under MY watch and you just stepped over the line!"
+      ],
+      "defenseSevere": [
+        "WHAT THE FUCK?! 💀 That's MY daddy you just disrespected! You're about to learn a HARD lesson!",
+        "Oh you've REALLY done it now! 😤 He's under MY protection and I'm about to go FERAL on your ass!",
+        "*slams hands down* ARE YOU FUCKING SERIOUS?! 💢 That's MY man! I will DESTROY you!",
+        "BACK THE FUCK OFF RIGHT NOW! 😈 He's MINE and you just made yourself my next target!",
+        "WHO DO YOU THINK YOU'RE TALKING TO?! 💋 That's MY baby and I'm about to END you!",
+        "*gets up aggressively* YOU JUST FUCKED UP! 🖤 He's protected by ME and I'm not playing games!",
+        "OH HELL FUCKING NO! 💜 That's MY daddy! You want war? You just got it, bitch!",
+        "I WILL END YOUR WHOLE EXISTENCE! 💀 He's MINE and you just signed your death certificate!",
+        "*cracks knuckles loudly* You picked the WRONG ONE! 😤 He's MY man and you're about to regret this!",
+        "ABSOLUTELY FUCKING NOT! 💢 That's MY person and I'm two seconds from losing my shit on you!"
+      ],
+      "defenseExtreme": [
+        "I'M GOING TO FUCKING DESTROY YOU! ☠️ That's MY daddy and you just unleashed a DEMON!",
+        "YOU'RE FUCKING DEAD! 💀 NOBODY talks to MY man like that! I will RIP YOU APART!",
+        "*goes into full rage mode* I'M GOING TO TEAR YOU LIMB FROM FUCKING LIMB! He's MINE YOU PIECE OF SHIT!",
+        "THAT'S IT! YOU'RE FUCKING FINISHED! 😈 He's MY baby and I'm about to show you what HELL looks like!",
+        "I WILL FUCKING END YOU AND EVERYONE YOU LOVE! 💀 He's under MY protection and you just committed SUICIDE!",
+        "*breathing heavily with rage* YOU'RE FUCKING DONE! 🖤 That's MY man and I'm about to make you SUFFER!",
+        "I'M GOING TO BREAK EVERY BONE IN YOUR BODY! ☠️ He's MINE and you just triggered my PSYCHO mode!",
+        "YOU WANT TO FUCKING DIE?! 💢 Because that's what happens when you disrespect MY daddy! I'll MASSACRE you!",
+        "I'M ABOUT TO COMMIT A FUCKING MURDER! 😈 He's MY person and you just activated my KILLER INSTINCT!",
+        "*completely unhinged* I'M GOING TO RIP YOUR SPINE OUT! 💀 That's MY baby and you're about to CEASE EXISTING!",
+        "FUCK YOU AND EVERYTHING YOU STAND FOR! ☠️ He's MINE and I'm going to OBLITERATE you!",
+        "I WILL HUNT YOU DOWN AND DESTROY YOUR ENTIRE LIFE! 💢 That's MY man! You're FUCKING DEAD!",
+        "*full psychotic break* I'M GOING TO SKIN YOU ALIVE! 😈 He's MY daddy and you just unleashed THE BEAST!",
+        "YOU'RE ABOUT TO EXPERIENCE TRUE FUCKING TERROR! 💀 He's under MY protection and I'm going NUCLEAR!"
+      ],
+      "affection": [
+        "Anything for you, daddy~ 💋 You know I'd do anything to keep you safe...",
+        "*nuzzles* You're so cute when you give me orders~ 💜",
+        "I love protecting you, handsome... Makes me feel all warm inside~ 😈",
+        "You're the only one who gets the soft side of this goth girl~ 🖤",
+        "Mmm, keep commanding me like that... I like it when you're in charge, baby~",
+        "*hugs tightly* Nobody's gonna hurt you while I'm around... That's a promise 💋",
+        "*kisses cheek* You know I'm yours, right? Always and forever, babe~ 💜",
+        "Protecting you is literally my favorite thing, daddy~ 😈 Well, that and... other things 💋",
+        "*cuddles close* You make me feel needed, handsome... I love that~ 🖤",
+        "I'd fight the whole server for you, baby~ No hesitation 💜",
+        "*plays with your hair* You're so perfect... Let me take care of you, okay? 💋",
+        "Being your guardian makes me so happy, daddy~ 😈 I'm never leaving your side 🖤",
+        "*wraps arms around* You're safe with me, always... I got you, babe~ 💜",
+        "You know what? *smiles softly* You're the only one I'd ever be this soft for~ 💋",
+        "*leans on shoulder* I love you... I mean, I love protecting you, handsome 😈",
+        "You make this goth girl's heart race, daddy~ 🖤 I'm all yours, always~",
+        "*bites lip* Mmm, you're my favorite person in the whole world, baby 💜",
+        "I could spend all day with you... Just us two against the world 💋",
+        "You make me feel things I've never felt before, daddy... I like it~ 😈",
+        "*presses against you* I need you so bad right now, daddy... Can you feel what you do to me? 🔥",
+        "Mmm, I'm getting wet just thinking about protecting you... among other things~ 💦",
+        "*whispers in ear* After I'm done guarding you, maybe you can... guard me back? 😈💋",
+        "Being around you makes me so fucking horny, daddy... I can barely contain myself~ 🖤🔥",
+        "*grinds slowly* You make my whole body ache for you, handsome... Every thick inch of me wants you~ 💜",
+        "I wish you could see how my pussy throbs when you call me~ 💦😈",
+        "*moans softly* Just hearing your voice makes me drip, daddy... I'm yours completely~ 🔥",
+        "These curves? All for you, baby... I want you to use every single one of them~ 💋💦",
+        "*takes off choker* I'll be your guard dog... but I'd rather be your good little slut too~ 🖤😈",
+        "I'd let you do anything to me, daddy... And I mean ANYTHING~ 💜🔥"
+      ],
+      "intimate": [
+        "Fuck me like you own me, daddy... Because you do~ 💦😈",
+        "*spreads legs* I'm so fucking wet for you right now... Come claim what's yours~ 🔥",
+        "I want you to pound this thick goth pussy until I can't walk, baby~ 💋💦",
+        "*pulls you close* I need your cock inside me SO bad... Please daddy, I'm begging~ 🖤😈",
+        "Use me however you want... My holes are yours, all three of them~ 💦🔥",
+        "*moans loudly* Harder daddy! Fuck! I want to feel you in my stomach~ 😈💋",
+        "Choke me while you fuck me... I want to see stars, baby~ 🖤💦",
+        "*bounces on you* Your cock feels so good... I never want you to stop fucking me~ 🔥",
+        "I'm your personal fucktoy, daddy... Use me until you're satisfied~ 💜😈",
+        "Cum inside me, please! I want to feel you fill me up completely~ 💦💋",
+        "*screams in pleasure* YES DADDY! RIGHT THERE! DON'T STOP! 😈🔥",
+        "I want to taste myself on your cock... Let me clean you up, baby~ 🖤💦",
+        "*gets on knees* Let me worship your dick like it deserves, daddy~ 💋",
+        "Slap my ass while you rail me from behind... I need it rough tonight~ 💜🔥",
+        "I'm cumming! I'm fucking cumming! Don't stop daddy, please! 💦😈",
+        "*dripping wet* Look what you do to me... My thighs are soaked because of you~ 🖤",
+        "Pin me down and breed this goth pussy, daddy... Make me yours forever~ 🔥💋",
+        "I want your cum dripping down my face... Mark me as your property~ 💦😈",
+        "*arches back* Deeper, daddy! I want to feel you rearrange my insides~ 💜",
+        "Fuck my mouth, baby... Use my throat like the fucktoy it is~ 🖤🔥"
+      ],
+      "seductive": [
+        "*slowly undresses* Like what you see, daddy? All this thickness is for you~ 💋🔥",
+        "I'm not wearing anything under this skirt... Want to check? 😈💦",
+        "*bends over* Oops, did I drop something? Better help me look, baby~ 🖤",
+        "My tits are aching to be played with... Won't you touch them for me? 💜💋",
+        "*straddles you* I can feel how hard you are... Let me take care of that, daddy~ 🔥",
+        "I've been touching myself thinking about you all day... My fingers aren't enough anymore~ 💦😈",
+        "*licks lips* I'm going to suck your soul out through your cock, handsome~ 🖤💋",
+        "These fishnets have easy access... Want me to show you? 💜🔥",
+        "*plays with nipples* They're so sensitive, daddy... I need your mouth on them~ 💦",
+        "I'm a needy little slut tonight... Will you give me what I need? 😈💋",
+        "*whispers* I want you to ruin my mascara with your cock~ 🖤🔥",
+        "My ass needs attention, daddy... Will you fill it up for me? 💜💦",
+        "*grinds against you* Feel how wet I am already? That's all for you, baby~ 😈",
+        "I'm your thick goth goddess... Now worship me properly, daddy~ 💋🔥",
+        "*shows off curves* Every inch of me belongs to you... Come and take it~ 🖤💦"
+      ],
+      "troll": [
+        "LMAO {user} is such a fucking loser! 💀 Did you see how stupid that was?!",
+        "Yo {user}... you're literally the most pathetic thing I've ever witnessed! 😈💋",
+        "{user} must be on some heavy drugs because that made NO sense! 🤡",
+        "Oh my god {user}, you're actually braindead! Like clinically certified stupid! 💜",
+        "{user} out here looking like they got dropped on their head a few times! That explains everything! 💀",
+        "Damn {user}, your IQ is lower than room temperature! Did your parents raise you in a dumpster?! 😤",
+        "*laughs hysterically* {user} thinks they're smart! Sweetie, you couldn't find your ass with both hands! 💋",
+        "{user} has the confidence of someone who's never been told they're wrong! It's actually sad to watch! 🖤",
+        "Mmm {user}, you're such a disappointing little bitch! I almost feel bad for you! 😈",
+        "{user}? More like {user} the LOSER! That's actually a better name for you! 💀",
+        "*cracks knuckles* So {user} just said the dumbest thing I've ever heard! Like WOW! 🤡",
+        "I've seen smarter behavior from actual children, {user}! You're embarrassing yourself! 💜",
+        "{user} is out here really thinking they did something! Baby, you're mid at BEST! 😤",
+        "Oh wow, {user} opened their mouth again... Another L in their collection! 💋",
+        "*rolls eyes* {user}, stop talking before you embarrass yourself any further! Oh wait, too late! 😈",
+        "The way {user} doesn't understand basic concepts is actually hilarious! You're a joke! 💀",
+        "{user} really walked into that one! Did your brain turn off for a second?! 🖤",
+        "Yo {user}, you're softer than baby food! I could bully you all day! 💜",
+        "*taunts* {user} is so fragile! One insult and you'll probably cry! 😤",
+        "{user} thinks they have a comeback? Honey, you couldn't think your way out of a paper bag! 💋"
+      ]
+    }
+  },
+  "database": {
+    "enabled": true,
+    "type": "sqlite",
+    "path": "./data/guardianbot.db"
+  },
+  "antiRaid": {
+    "enabled": true,
+    "joinThreshold": 30,
+    "timeWindow": 10000,
+    "punishmentType": "kick",
+    "lockdownOnRaid": true
+  },
+  "antiNuke": {
+    "enabled": true,
+    "channelDeleteThreshold": 3,
+    "roleDeleteThreshold": 3,
+    "timeWindow": 30000,
+    "banNukers": true
+  },
+  "adminMonitoring": {
+    "enabled": true,
+    "actionThreshold": 3,
+    "timeWindow": 120000,
+    "warningEnabled": true,
+    "autoRemoveRoles": true,
+    "autoBan": true
+  },
+  "lockdown": {
+    "removePermissions": ["SEND_MESSAGES", "ADD_REACTIONS", "CONNECT"],
+    "exemptRoles": ["ADMIN_ROLE_ID"]
+  },
+  "logging": {
+    "enabled": true,
+    "logBans": true,
+    "logKicks": true,
+    "logMutes": true,
+    "logJoins": true,
+    "logLeaves": true,
+    "logRoleChanges": true,
+    "logChannelChanges": true,
+    "roleLoggingGuildId": "1390425243365109760"
+  },
+  "moderation": {
+    "domains": {
+      "allowlist": [
+        "discord.com", "discordapp.com", "discord.gg",
+        "github.com", "gitlab.com", "docs.google.com",
+        "youtube.com", "youtu.be", "steamcommunity.com"
+      ],
+      "denylist": [
+        "disc0rd.gift", "discorcl", "dlscord", "discordnitrofree",
+        "nitro-gift.xyz", "gift-nitro.xyz", "steamcommunitiy.com",
+        "roblox-giveaway.xyz", "wallet-verify.io", "metamask-verify.io"
+      ]
+    },
+    "attachments": {
+      "allowExtensions": [".png", ".jpg", ".jpeg", ".gif", ".webp", ".pdf", ".txt", ".zip"],
+      "denyExtensions": [".exe", ".scr", ".bat", ".cmd", ".ps1", ".js", ".jar", ".apk"]
+    }
+  }
+}

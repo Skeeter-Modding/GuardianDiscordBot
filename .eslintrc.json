@@ -1,0 +1,54 @@
+{
+    "env": {
+        "node": true,
+        "es2022": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+        "no-console": "off",
+        "prefer-const": "error",
+        "no-var": "error",
+        "eqeqeq": ["error", "always"],
+        "curly": ["error", "all"],
+        "no-throw-literal": "error",
+        "prefer-promise-reject-errors": "error",
+        "no-return-await": "error",
+        "require-await": "warn",
+        "no-async-promise-executor": "error",
+        "no-await-in-loop": "warn",
+        "no-promise-executor-return": "error",
+        "max-depth": ["warn", 4],
+        "max-nested-callbacks": ["warn", 3],
+        "no-duplicate-imports": "error",
+        "no-useless-concat": "error",
+        "prefer-template": "warn",
+        "object-shorthand": ["warn", "always"],
+        "prefer-destructuring": ["warn", {
+            "array": false,
+            "object": true
+        }],
+        "no-eval": "error",
+        "no-implied-eval": "error",
+        "no-new-func": "error",
+        "no-script-url": "error"
+    },
+    "ignorePatterns": [
+        "node_modules/",
+        "logs/",
+        "dashboard-public/",
+        "*.min.js"
+    ]
+}

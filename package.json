@@ -1,0 +1,57 @@
+{
+  "name": "discord-guardian-bot",
+  "version": "1.0.0",
+  "description": "Advanced Discord bot for anti-raid, anti-nuke protection with admin monitoring",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "start-bot": "node bot.js",
+    "start-dashboard": "node dashboard-server.js",
+    "start:new": "node index-new.js",
+    "dev": "nodemon bot.js",
+    "register": "node register_commands.js",
+    "deploy": "npm run register && npm start",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/ tests/ --ext .js",
+    "lint:fix": "eslint src/ tests/ --ext .js --fix",
+    "format": "prettier --write \"src/**/*.js\" \"tests/**/*.js\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"tests/**/*.js\""
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "security",
+    "anti-raid",
+    "anti-nuke",
+    "protection"
+  ],
+  "author": "SKEETS_GUARDIAN",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "axios": "^1.12.2",
+    "better-sqlite3": "^12.6.2",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "discord.js": "^14.14.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "fs": "^0.0.1-security",
+    "groq-sdk": "^0.37.0",
+    "jest": "^30.2.0",
+    "path": "^0.12.7",
+    "redis": "^5.10.0",
+    "uuid": "^13.0.0",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.7.4"
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a2e; color: white; }
+        button { padding: 10px 20px; background: #7c3aed; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #8b5cf6; }
+        #result { margin-top: 20px; padding: 15px; background: #2a2a3e; border-radius: 5px; }
+        ul { list-style-type: none; padding: 0; }
+        li { padding: 5px 0; border-bottom: 1px solid #444; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Guild API Test</h1>
+    <p>This page tests if the guilds API is working properly.</p>
+    <button onclick="testGuilds()">Test Guilds API</button>
+    <div id="result"></div>
+
+    <script>
+        async function testGuilds() {
+            document.getElementById('result').innerHTML = '<p>⏳ Testing API...</p>';
+            
+            try {
+                // Create owner token (same format as dashboard login)
+                const userId = 'owner';
+                const timestamp = Date.now();
+                const tokenType = 'dashboard';
+                const tokenData = `${userId}:${timestamp}:${tokenType}`;
+                const encodedToken = btoa(tokenData);
+                
+                console.log('🔍 Testing with token:', encodedToken);
+                console.log('🔍 Token data:', tokenData);
+                
+                const response = await fetch('/api/guilds', {
+                    headers: {
+                        'Authorization': `Bearer ${encodedToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                console.log('🔍 Response status:', response.status, response.statusText);
+                
+                if (response.ok) {
+                    const guilds = await response.json();
+                    console.log('✅ Guilds received:', guilds);
+                    
+                    if (guilds && guilds.length > 0) {
+                        document.getElementById('result').innerHTML = 
+                            `<h2>✅ Success! Found ${guilds.length} guilds:</h2>
+                             <ul>${guilds.map(g => `<li>📁 ${g.name} (${g.memberCount} members)</li>`).join('')}</ul>`;
+                    } else {
+                        document.getElementById('result').innerHTML = 
+                            `<h2>⚠️ API worked but returned empty array</h2>
+                             <p>Response: <pre>${JSON.stringify(guilds, null, 2)}</pre></p>`;
+                    }
+                } else {
+                    const errorText = await response.text();
+                    console.error('❌ API Error:', errorText);
+                    document.getElementById('result').innerHTML = 
+                        `<h2>❌ Error: ${response.status} ${response.statusText}</h2>
+                         <pre>${errorText}</pre>`;
+                }
+            } catch (error) {
+                console.error('💥 Exception:', error);
+                document.getElementById('result').innerHTML = 
+                    `<h2>💥 Exception occurred:</h2>
+                     <pre>${error.message}</pre>`;
+            }
+        }
+    </script>
+</body>
+</html>

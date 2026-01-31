@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuardianBot Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e0e7ff',
+                            500: '#7551ff',
+                            600: '#6d28d9',
+                            700: '#5b21b6'
+                        },
+                        card: {
+                            light: '#ffffff',
+                            dark: '#1e1e1e'
+                        },
+                        bg: {
+                            light: '#f8fafc',
+                            dark: '#0f0f0f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Dark Theme Variables */
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-tertiary: #16213e;
+            --bg-card: #1e1e3f;
+            --accent-primary: #7c3aed;
+            --accent-secondary: #06d6a0;
+            --accent-danger: #ef4444;
+            --accent-warning: #f59e0b;
+            --accent-success: #10b981;
+            --text-primary: #ffffff;
+            --text-secondary: #a8b2d1;
+            --text-muted: #6b7280;
+            --border-color: #374151;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%) !important;
+            color: var(--text-primary) !important;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8b5cf6;
+        }
+
+        .gradient-brand {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #8b5cf6 100%);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-shadow-lg {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Stats Cards with Glow */
+        .stat-card {
+            background: linear-gradient(145deg, var(--bg-card), var(--bg-tertiary)) !important;
+            border: 1px solid var(--border-color) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* Icon Backgrounds with Glow */
+        .icon-purple { 
+            background: linear-gradient(45deg, #7c3aed, #8b5cf6) !important; 
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.5) !important;
+        }
+        .icon-green { 
+            background: linear-gradient(45deg, #10b981, #059669) !important; 
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5) !important;
+        }
+        .icon-red { 
+            background: linear-gradient(45deg, #ef4444, #dc2626) !important; 
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.5) !important;
+        }
+        .icon-blue { 
+            background: linear-gradient(45deg, #3b82f6, #2563eb) !important; 
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5) !important;
+        }
+        .icon-yellow { 
+            background: linear-gradient(45deg, #f59e0b, #d97706) !important; 
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5) !important;
+        }
+        .icon-cyan { 
+            background: linear-gradient(45deg, #06d6a0, #10b981) !important; 
+            box-shadow: 0 0 20px rgba(6, 214, 160, 0.5) !important;
+        }
+
+        /* Form Elements */
+        select, input {
+            background: var(--bg-tertiary) !important;
+            border: 1px solid var(--border-color) !important;
+            color: var(--text-primary) !important;
+        }
+
+        select:focus, input:focus {
+            border-color: var(--accent-primary) !important;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2) !important;
+        }
+
+        /* Card Background Override */
+        .bg-card-light { background: var(--bg-card) !important; }
+        .dark\\:bg-card-dark { background: var(--bg-card) !important; }
+
+        /* Text Color Overrides */
+        .text-gray-900 { color: var(--text-primary) !important; }
+        .dark\\:text-white { color: var(--text-primary) !important; }
+        .text-gray-600 { color: var(--text-secondary) !important; }
+        .dark\\:text-gray-400 { color: var(--text-secondary) !important; }
+
+        /* Button Styles */
+        .btn-gradient-purple {
+            background: linear-gradient(45deg, var(--accent-primary), #8b5cf6) !important;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4) !important;
+        }
+
+        .btn-gradient-green {
+            background: linear-gradient(45deg, var(--accent-success), #059669) !important;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
+        }
+
+        .btn-gradient-red {
+            background: linear-gradient(45deg, var(--accent-danger), #dc2626) !important;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4) !important;
+        }
+
+        .btn-gradient-yellow {
+            background: linear-gradient(45deg, var(--accent-warning), #d97706) !important;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4) !important;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background: linear-gradient(180deg, var(--bg-secondary), var(--bg-tertiary)) !important;
+            border-right: 1px solid var(--border-color) !important;
+        }
+
+        /* Navigation */
+        .nav-item {
+            transition: all 0.3s ease !important;
+            border-left: 3px solid transparent !important;
+        }
+
+        .nav-item:hover {
+            background: rgba(124, 58, 237, 0.1) !important;
+            border-left-color: var(--accent-primary) !important;
+        }
+
+        /* Override Tailwind dark mode */
+        .dark {
+            color-scheme: dark;
+        }
+
+        /* Animation Glow */
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(124, 58, 237, 0.4); }
+            to { box-shadow: 0 0 30px rgba(124, 58, 237, 0.6); }
+        }
+
+        .breadcrumb-tag {
+            background: rgba(117, 81, 255, 0.2);
+            color: #7551ff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="bg-bg-light dark:bg-bg-dark text-gray-900 dark:text-white transition-colors duration-300 dark">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-80 bg-card-light dark:bg-card-dark border-r border-gray-200 dark:border-gray-700 flex flex-col transform transition-transform duration-300 -translate-x-full md:translate-x-0">
+            <!-- Sidebar Header -->
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 gradient-brand rounded-xl flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">GuardianBot</h1>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Security Dashboard</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Profile Card -->
+            <div id="user-card" class="hidden p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div id="user-avatar" class="w-12 h-12 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white"></i>
+                    </div>
+                    <div>
+                        <div id="user-name" class="font-semibold">Loading...</div>
+                        <div id="user-role-badge" class="text-xs px-2 py-1 bg-brand-100 text-brand-700 rounded-full">Loading...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guild Selector -->
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="relative">
+                    <input id="guild-search" type="text" placeholder="Search servers..." 
+                           class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <div class="space-y-1">
+                    <button onclick="showTab('dashboard')" class="nav-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3 hover:bg-brand-50 dark:hover:bg-brand-900/20 transition-colors">
+                        <i class="fas fa-home text-gray-500"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button onclick="showTab('guilds')" class="nav-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3">
+                        <i class="fas fa-server text-gray-500"></i>
+                        <span>Servers</span>
+                    </button>
+                    <button onclick="showTab('moderation')" class="nav-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3">
+                        <i class="fas fa-gavel text-gray-500"></i>
+                        <span>Moderation</span>
+                    </button>
+                    <button onclick="showTab('automod')" class="nav-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3">
+                        <i class="fas fa-shield-alt text-gray-500"></i>
+                        <span>Auto-Mod</span>
+                    </button>
+                    <button onclick="showTab('features')" class="nav-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3">
+                        <i class="fas fa-puzzle-piece text-gray-500"></i>
+                        <span>Features</span>
+                    </button>
+                    <button onclick="showTab('staff')" class="nav-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3">
+                        <i class="fas fa-users-cog text-gray-500"></i>
+                        <span>Staff Analytics</span>
+                    </button>
+                    <button onclick="showTab('staff-team')" class="nav-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3">
+                        <i class="fas fa-user-shield text-gray-500"></i>
+                        <span>Staff Team</span>
+                    </button>
+                    <button onclick="showTab('logs')" class="nav-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3">
+                        <i class="fas fa-clipboard-list text-gray-500"></i>
+                        <span>Logs</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Bottom Profile -->
+            <div id="profile-section" class="hidden p-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-3 p-2">
+                    <div id="profile-avatar" class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                    <div class="flex-1 min-w-0">
+                        <div id="profile-name" class="font-medium text-sm truncate">Loading...</div>
+                        <div id="profile-status" class="text-xs text-gray-500">Online</div>
+                    </div>
+                    <button id="logout-btn" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                        <i class="fas fa-sign-out-alt text-gray-500"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navbar -->
+            <header class="bg-card-light dark:bg-card-dark border-b border-gray-200 dark:border-gray-700 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <!-- Breadcrumb -->
+                    <div class="hidden md:flex items-center space-x-2">
+                        <span class="breadcrumb-tag">
+                            <i class="fas fa-home mr-2"></i>Dashboard
+                        </span>
+                        <i class="fas fa-chevron-right text-brand-500 text-sm"></i>
+                        <span id="current-page" class="breadcrumb-tag">Home</span>
+                    </div>
+
+                    <!-- Right side controls -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                            <i class="fas fa-moon text-gray-500 dark:text-gray-400"></i>
+                        </button>
+                        
+                        <!-- Status Indicator -->
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium text-green-600 dark:text-green-400">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 p-6 overflow-y-auto">
+                <!-- Page Title -->
+                <div class="mb-6">
+                    <h1 id="page-title" class="text-3xl font-bold mb-2">Dashboard</h1>
+                    <p id="page-description" class="text-gray-600 dark:text-gray-400">Welcome to your GuardianBot management dashboard</p>
+                </div>
+
+                <!-- Content Sections -->
+                
+                <!-- Dashboard Tab -->
+                <div id="dashboard-content" class="tab-content animate-fade-in">
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="stat-card p-6 rounded-xl card-shadow-lg border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Servers</p>
+                                    <p id="guild-count" class="text-2xl font-bold text-gray-900 dark:text-white">0</p>
+                                </div>
+                                <div class="w-12 h-12 icon-purple rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-server text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl card-shadow-lg border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Users</p>
+                                    <p id="user-count" class="text-2xl font-bold text-gray-900 dark:text-white">0</p>
+                                </div>
+                                <div class="w-12 h-12 icon-green rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl card-shadow-lg border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Warnings Today</p>
+                                    <p id="warning-count" class="text-2xl font-bold text-gray-900 dark:text-white">0</p>
+                                </div>
+                                <div class="w-12 h-12 icon-yellow rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-exclamation-triangle text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl card-shadow-lg border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Bot Latency</p>
+                                    <p id="bot-ping" class="text-2xl font-bold text-gray-900 dark:text-white">-</p>
+                                </div>
+                                <div class="w-12 h-12 icon-blue rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-wifi text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Welcome Section -->
+                    <div class="bg-gradient-to-r from-brand-500 to-brand-600 rounded-xl p-8 text-white mb-8">
+                        <div class="flex items-center space-x-6">
+                            <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-robot text-3xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold mb-2">Welcome to GuardianBot</h2>
+                                <p class="text-white/80 mb-4">Powerful Discord bot protection and management at your fingertips</p>
+                                <button onclick="inviteBot()" class="bg-white/20 hover:bg-white/30 px-6 py-2 rounded-lg transition-colors">
+                                    <i class="fas fa-plus mr-2"></i>Invite Bot
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other tabs content will be populated by JavaScript -->
+                <div id="guilds-content" class="tab-content hidden">
+                    <div id="guilds-list" class="space-y-4">
+                        <div class="text-center py-12">
+                            <i class="fas fa-spinner fa-spin text-3xl text-gray-400 mb-4"></i>
+                            <p class="text-gray-500">Loading servers...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="moderation-content" class="tab-content hidden">
+                    <!-- Server Selection -->
+                    <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow mb-6 border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">Server Selection</h3>
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <select id="mod-guild-select" class="flex-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-gray-900 dark:text-white">
+                                <option value="">Select a server...</option>
+                            </select>
+                            <button onclick="loadModerationData()" class="gradient-brand text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity">
+                                <i class="fas fa-sync mr-2"></i>Load Moderation Data
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Moderation Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="stat-card p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Warnings</p>
+                                    <p id="total-warnings" class="text-2xl font-bold text-gray-900 dark:text-white">0</p>
+                                </div>
+                                <div class="w-12 h-12 icon-yellow rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-exclamation-triangle text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-105 transition-transform" onclick="showBansList()">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Bans</p>
+                                    <p id="total-bans" class="text-2xl font-bold text-gray-900 dark:text-white">0</p>
+                                </div>
+                                <div class="w-12 h-12 icon-red rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-hammer text-white"></i>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-mouse-pointer mr-1"></i>Click to view details</p>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700 cursor-pointer hover:scale-105 transition-transform" onclick="showActionsTodayList()">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Actions Today</p>
+                                    <p id="actions-today" class="text-2xl font-bold text-gray-900 dark:text-white">0</p>
+                                </div>
+                                <div class="w-12 h-12 icon-blue rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-gavel text-white"></i>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-mouse-pointer mr-1"></i>Click to view details</p>
+                        </div>
+                    </div>
+
+                    <!-- User Lookup -->
+                    <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow mb-6 border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">User Lookup</h3>
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <input type="text" id="user-search" placeholder="Enter user ID or @mention" class="flex-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-gray-900 dark:text-white">
+                            <button onclick="searchUser()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-search mr-2"></i>Search User
+                            </button>
+                        </div>
+                        <div id="user-search-results" class="mt-4 hidden">
+                            <!-- User search results will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow mb-6 border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">Quick Actions</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <button onclick="showWarningModal()" class="btn-gradient-yellow text-white p-4 rounded-lg font-medium transition-all hover:scale-105">
+                                <i class="fas fa-exclamation-triangle block text-xl mb-2"></i>Issue Warning
+                            </button>
+                            <button onclick="showMuteModal()" class="btn-gradient-red text-white p-4 rounded-lg font-medium transition-all hover:scale-105">
+                                <i class="fas fa-volume-mute block text-xl mb-2"></i>Mute User
+                            </button>
+                            <button onclick="showBanModal()" class="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white p-4 rounded-lg font-medium transition-all hover:scale-105 shadow-lg">
+                                <i class="fas fa-hammer block text-xl mb-2"></i>Ban User
+                            </button>
+                            <button onclick="showLockdownModal()" class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white p-4 rounded-lg font-medium transition-all hover:scale-105 shadow-lg">
+                                <i class="fas fa-lock block text-xl mb-2"></i>Lockdown
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Warnings -->
+                    <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow mb-6 border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">Recent Warnings</h3>
+                        <div id="recent-warnings" class="space-y-4">
+                            <div class="text-center py-8">
+                                <i class="fas fa-list text-3xl text-gray-400 mb-4"></i>
+                                <p class="text-gray-500">Select a server to view warnings</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Moderation History -->
+                    <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">Moderation History</h3>
+                        <div id="moderation-history" class="space-y-4">
+                            <div class="text-center py-8">
+                                <i class="fas fa-history text-3xl text-gray-400 mb-4"></i>
+                                <p class="text-gray-500">Select a server to view moderation history</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="features-content" class="tab-content hidden">
+                    <!-- Server Selection for Features -->
+                    <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow mb-6 border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">Server Selection</h3>
+                        <select id="features-guild-select" class="w-full md:w-1/2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-gray-900 dark:text-white">
+                            <option value="">Select a server...</option>
+                        </select>
+                    </div>
+
+                    <!-- Bot Features -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <!-- XP & Leveling -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold">XP & Leveling System</h3>
+                                <div class="flex items-center">
+                                    <span id="xp-status" class="text-sm text-green-600 mr-2">✅ Active</span>
+                                    <button id="xp-toggle" onclick="toggleFeature('xp')" class="w-10 h-6 bg-green-500 rounded-full relative transition-colors duration-200 focus:outline-none">
+                                        <div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1 transition-transform duration-200"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Users gain XP for chatting and can level up to unlock role rewards.</p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>XP per message:</span>
+                                    <span class="font-medium">15-25 XP</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Cooldown:</span>
+                                    <span class="font-medium">60 seconds</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Custom Commands -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold">Custom Commands</h3>
+                                <div class="flex items-center">
+                                    <span id="commands-status" class="text-sm text-green-600 mr-2">✅ Active</span>
+                                    <button id="commands-toggle" onclick="toggleFeature('commands')" class="w-10 h-6 bg-green-500 rounded-full relative transition-colors duration-200 focus:outline-none">
+                                        <div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1 transition-transform duration-200"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Create custom commands with variables and dynamic responses.</p>
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                                <i class="fas fa-plus mr-2"></i>Add Command
+                            </button>
+                        </div>
+
+                        <!-- Auto-Moderation -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold">Auto-Moderation</h3>
+                                <div class="flex items-center">
+                                    <span id="automod-status" class="text-sm text-green-600 mr-2">✅ Active</span>
+                                    <button id="automod-toggle" onclick="toggleFeature('automod')" class="w-10 h-6 bg-green-500 rounded-full relative transition-colors duration-200 focus:outline-none">
+                                        <div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1 transition-transform duration-200"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Automatic spam detection, hate speech filtering, and invite link blocking with progressive punishments.</p>
+                            <ul class="text-sm text-gray-500 space-y-1">
+                                <li>• Discord Invite Detection</li>
+                                <li>• Hate Speech Filter</li>
+                                <li>• Progressive Punishments</li>
+                                <li>• Staff Bypass System</li>
+                            </ul>
+                        </div>
+
+                        <!-- Reaction Roles -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold">Reaction Roles</h3>
+                                <div class="flex items-center">
+                                    <span id="reactions-status" class="text-sm text-yellow-600 mr-2">⚙️ Planned</span>
+                                    <button id="reactions-toggle" onclick="toggleFeature('reactions')" class="w-10 h-6 bg-gray-300 rounded-full relative transition-colors duration-200 focus:outline-none" disabled>
+                                        <div class="w-4 h-4 bg-white rounded-full absolute left-1 top-1 transition-transform duration-200"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Users can assign themselves roles by reacting to messages with emojis.</p>
+                            <button class="bg-gray-400 text-white px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed" disabled>
+                                Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Available Commands -->
+                    <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">Available Slash Commands</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="space-y-2">
+                                <h4 class="font-medium text-blue-600">Moderation</h4>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                                    <li>/warn - Issue warnings</li>
+                                    <li>/mute - Mute users</li>
+                                    <li>/ban - Ban users</li>
+                                    <li>/kick - Kick users</li>
+                                    <li>/timeout - Timeout users</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <h4 class="font-medium text-green-600">Utility</h4>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                                    <li>/warnings - View warnings</li>
+                                    <li>/userinfo - User information</li>
+                                    <li>/serverinfo - Server info</li>
+                                    <li>/avatar - Show avatars</li>
+                                    <li>/ping - Check bot latency</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <h4 class="font-medium text-purple-600">Bot Features</h4>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                                    <li>/level - Check user level</li>
+                                    <li>/rank - Show rank card</li>
+                                    <li>/leaderboard - XP rankings</li>
+                                    <li>/addxp - Give XP (Admin)</li>
+                                    <li>/removexp - Remove XP (Admin)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="automod-content" class="tab-content hidden">
+                    <!-- Server Selection for Auto-Mod -->
+                    <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700 mb-6">
+                        <h2 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-shield-alt text-blue-500 mr-3"></i>
+                            Auto-Moderation Control
+                        </h2>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <select id="automod-guild-select" class="flex-1 bg-gray-50 dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2">
+                                <option value="">Select a server...</option>
+                            </select>
+                            <button id="load-automod-data" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-shield-check mr-2"></i>Load Auto-Mod Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Auto-Mod Settings Panel -->
+                    <div id="automod-settings-panel" class="hidden space-y-6">
+                        <!-- Status Overview -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-semibold">Discord Invites</h3>
+                                    <button id="invites-toggle" onclick="toggleAutoMod('invites')" class="w-12 h-6 bg-green-500 rounded-full relative transition-colors duration-200 focus:outline-none">
+                                        <div class="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5 transition-transform duration-200"></div>
+                                    </button>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Auto-delete invite links</p>
+                                <p id="invites-status" class="text-xs text-green-600 mt-2">✅ Active</p>
+                            </div>
+                            
+                            <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-semibold">Hate Speech</h3>
+                                    <button id="hatespeech-toggle" onclick="toggleAutoMod('hatespeech')" class="w-12 h-6 bg-red-500 rounded-full relative transition-colors duration-200 focus:outline-none">
+                                        <div class="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5 transition-transform duration-200"></div>
+                                    </button>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Zero tolerance policy</p>
+                                <p id="hatespeech-status" class="text-xs text-red-600 mt-2">🚨 Strict Mode</p>
+                            </div>
+                            
+                            <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-semibold">Spam Detection</h3>
+                                    <button id="spam-toggle" onclick="toggleAutoMod('spam')" class="w-12 h-6 bg-green-500 rounded-full relative transition-colors duration-200 focus:outline-none">
+                                        <div class="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5 transition-transform duration-200"></div>
+                                    </button>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Message spam protection</p>
+                                <p id="spam-status" class="text-xs text-green-600 mt-2">✅ Active</p>
+                            </div>
+                        </div>
+
+                        <!-- Violation Statistics -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                <i class="fas fa-chart-bar text-blue-500 mr-3"></i>
+                                Recent Violations (Last 7 Days)
+                            </h3>
+                            <div id="automod-stats" class="space-y-4">
+                                <div class="text-center py-8">
+                                    <i class="fas fa-shield-check text-3xl text-green-500 mb-4"></i>
+                                    <p class="text-gray-500">No violations detected</p>
+                                    <p class="text-sm text-gray-400">Your server is well-moderated!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Punishment Escalation Chart -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-lg font-semibold mb-6">Punishment Escalation System</h3>
+                            
+                            <!-- Discord Invites Escalation -->
+                            <div class="mb-6">
+                                <h4 class="font-medium text-blue-600 mb-3 flex items-center">
+                                    <i class="fas fa-link mr-2"></i>Discord Invite Links
+                                </h4>
+                                <div class="flex flex-wrap gap-2 text-sm">
+                                    <div class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 px-3 py-1 rounded-full">
+                                        1st: ⚠️ Warning
+                                    </div>
+                                    <div class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 px-3 py-1 rounded-full">
+                                        2nd: 🔇 5min mute
+                                    </div>
+                                    <div class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-3 py-1 rounded-full">
+                                        3rd: 🔇 30min mute
+                                    </div>
+                                    <div class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full">
+                                        4th: 🔇 2hr mute
+                                    </div>
+                                    <div class="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-1 rounded-full">
+                                        5th: 🔨 Ban
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Hate Speech Escalation -->
+                            <div class="mb-6">
+                                <h4 class="font-medium text-red-600 mb-3 flex items-center">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>Hate Speech & Slurs
+                                </h4>
+                                <div class="flex flex-wrap gap-2 text-sm">
+                                    <div class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-3 py-1 rounded-full">
+                                        1st: 🔇 24hr mute
+                                    </div>
+                                    <div class="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-1 rounded-full">
+                                        2nd: 🔨 Permanent Ban
+                                    </div>
+                                </div>
+                                <p class="text-sm text-red-600 dark:text-red-400 mt-2">⚠️ Zero tolerance policy - No warnings given</p>
+                            </div>
+                            
+                            <!-- Staff Bypass Notice -->
+                            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                                <h4 class="font-medium text-blue-800 dark:text-blue-300 mb-2 flex items-center">
+                                    <i class="fas fa-user-shield mr-2"></i>Staff Protection
+                                </h4>
+                                <p class="text-sm text-blue-700 dark:text-blue-400">
+                                    Users with moderation permissions (Manage Server, Administrator) automatically bypass all auto-moderation rules.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Recent Violations Log -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center justify-between">
+                                <span>
+                                    <i class="fas fa-history text-purple-500 mr-3"></i>
+                                    Recent Violations
+                                </span>
+                                <button id="refresh-violations" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                                    <i class="fas fa-refresh mr-2"></i>Refresh
+                                </button>
+                            </h3>
+                            <div id="automod-violations" class="space-y-3">
+                                <div class="text-center py-8">
+                                    <i class="fas fa-clipboard-list text-3xl text-gray-400 mb-4"></i>
+                                    <p class="text-gray-500">No recent violations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="staff-content" class="tab-content hidden">
+                    <div id="staff-leaderboard">
+                        <div class="text-center py-12">
+                            <i class="fas fa-users-cog text-3xl text-gray-400 mb-4"></i>
+                            <p class="text-gray-500">Loading staff analytics...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Staff Team Tab -->
+                <div id="staff-team-content" class="tab-content hidden">
+                    <!-- Staff Team Header -->
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold mb-2">Staff Team</h2>
+                        <p class="text-gray-600 dark:text-gray-400">View all staff members with their roles and join dates</p>
+                    </div>
+
+                    <!-- Server Selector -->
+                    <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl card-shadow border border-gray-200 dark:border-gray-700 mb-6">
+                        <div class="flex items-center space-x-4">
+                            <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Select Server:</label>
+                            <select id="staff-team-server-select" class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" onchange="loadStaffTeamForServer(this.value)">
+                                <option value="">-- Choose a server --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="staff-team-list">
+                        <div class="text-center py-12">
+                            <i class="fas fa-server text-3xl text-gray-400 mb-4"></i>
+                            <p class="text-gray-500">Please select a server to view staff members</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logs Tab -->
+                <div id="logs-content" class="tab-content hidden">
+                    <!-- Logs Header -->
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold mb-2">Server Logs</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Monitor role changes and moderation activity across your server</p>
+                    </div>
+
+                    <!-- Log Filter Controls -->
+                    <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl card-shadow border border-gray-200 dark:border-gray-700 mb-6">
+                        <div class="flex flex-wrap items-center gap-4">
+                            <div class="flex items-center space-x-2">
+                                <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Log Type:</label>
+                                <select id="log-type-filter" class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+                                    <option value="">All Logs</option>
+                                    <option value="role-changes">Role Changes</option>
+                                    <option value="moderation">Moderation</option>
+                                    <option value="warnings">Warnings</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Period:</label>
+                                <select id="log-period-filter" class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+                                    <option value="24">Last 24 Hours</option>
+                                    <option value="168">Last 7 Days</option>
+                                    <option value="720">Last 30 Days</option>
+                                </select>
+                            </div>
+                            <button id="apply-log-filters" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                                <i class="fas fa-filter mr-2"></i>Apply Filters
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Role Change Logs Section -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                        <!-- Role Logs Stats -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                <i class="fas fa-chart-line text-blue-500 mr-3"></i>
+                                Role Activity Stats
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Total Actions:</span>
+                                    <span id="total-role-actions" class="font-semibold">0</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Roles Created:</span>
+                                    <span id="roles-created" class="font-semibold text-green-600">0</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Roles Deleted:</span>
+                                    <span id="roles-deleted" class="font-semibold text-red-600">0</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Role Updates:</span>
+                                    <span id="roles-updated" class="font-semibold text-yellow-600">0</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Member Changes:</span>
+                                    <span id="member-role-changes" class="font-semibold text-blue-600">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                <i class="fas fa-tools text-green-500 mr-3"></i>
+                                Quick Actions
+                            </h3>
+                            <div class="space-y-3">
+                                <button id="export-role-logs" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                                    <i class="fas fa-download mr-2"></i>Export Role Logs
+                                </button>
+                                <button id="refresh-role-logs" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                                    <i class="fas fa-refresh mr-2"></i>Refresh Logs
+                                </button>
+                                <button id="clear-old-logs" class="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                                    <i class="fas fa-trash mr-2"></i>Clear Old Logs
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Log Summary -->
+                        <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                <i class="fas fa-info-circle text-purple-500 mr-3"></i>
+                                Log Summary
+                            </h3>
+                            <div class="space-y-3 text-sm">
+                                <div>
+                                    <span class="text-gray-600 dark:text-gray-400">Tracking Status:</span>
+                                    <div class="flex items-center mt-1">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                        <span class="text-green-600 font-medium">Active</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-gray-600 dark:text-gray-400">Server Coverage:</span>
+                                    <div class="mt-1">
+                                        <span class="font-medium">Triple Threat Tactical</span>
+                                        <div class="text-xs text-gray-500">Role logging enabled</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-gray-600 dark:text-gray-400">Last Update:</span>
+                                    <div id="last-log-update" class="mt-1 font-medium">Just now</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role Change Logs Table -->
+                    <div class="bg-card-light dark:bg-card-dark rounded-xl card-shadow border border-gray-200 dark:border-gray-700">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                            <h3 class="text-lg font-semibold flex items-center justify-between">
+                                <span>
+                                    <i class="fas fa-history text-purple-500 mr-3"></i>
+                                    Recent Role Changes
+                                </span>
+                                <span id="role-logs-count" class="text-sm text-gray-500">Loading...</span>
+                            </h3>
+                        </div>
+                        <div id="role-logs-container" class="p-6">
+                            <div class="text-center py-8">
+                                <i class="fas fa-spinner fa-spin text-3xl text-gray-400 mb-4"></i>
+                                <p class="text-gray-500">Loading role change logs...</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div id="role-logs-pagination" class="p-6 border-t border-gray-200 dark:border-gray-700 hidden">
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-500">
+                                    Showing <span id="logs-range-start">1</span> to <span id="logs-range-end">20</span> of <span id="logs-total">0</span> logs
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button id="logs-prev-page" class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-50">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button id="logs-next-page" class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-50">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Mobile sidebar overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-card-light dark:bg-card-dark rounded-xl p-8 max-w-md w-full mx-4 card-shadow-lg">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 gradient-brand rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-alt text-white text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">GuardianBot Dashboard</h2>
+                <p class="text-gray-600 dark:text-gray-400">Secure access required</p>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-6">
+                <h3 class="font-semibold mb-3 text-blue-600 dark:text-blue-400">
+                    <i class="fas fa-shield-alt mr-2"></i>Secure Discord Authentication
+                </h3>
+                <div class="space-y-2 text-sm">
+                    <p class="text-gray-700 dark:text-gray-300">
+                        This dashboard requires Discord authentication to verify your identity and permissions.
+                    </p>
+                    <div class="flex items-start mt-3">
+                        <i class="fas fa-lock text-green-500 mr-2 mt-1"></i>
+                        <span class="text-gray-600 dark:text-gray-400">You will only see servers where you have admin permissions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <button onclick="requestDiscordAuth()" class="w-full bg-[#5865F2] text-white py-4 px-6 rounded-lg font-semibold hover:bg-[#4752C4] transition-colors text-lg">
+                    <i class="fab fa-discord mr-2"></i>Login with Discord
+                </button>
+
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-card-light dark:bg-card-dark text-gray-500">or</span>
+                    </div>
+                </div>
+
+                <button onclick="inviteBot()" class="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                    <i class="fas fa-robot mr-2"></i>Invite Bot to Server
+                </button>
+            </div>
+
+            <p class="text-xs text-gray-500 text-center mt-6">
+                <i class="fas fa-info-circle mr-1"></i>
+                Bot owner (ID: 701257205445558293) will have full access to all 20 servers.
+            </p>
+        </div>
+    </div>
+
+    <script src="dashboard-new.js?v=1731101100"></script>
+</body>
+</html>

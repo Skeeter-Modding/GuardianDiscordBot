@@ -1,0 +1,7 @@
+node_modules/
+logs/
+dashboard-public/*.min.js
+*.log
+.env
+config.json
+package-lock.json
